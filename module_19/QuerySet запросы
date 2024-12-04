@@ -1,0 +1,18 @@
+buyer1 = Buyer.objects.create(name="Максим", balance=100.00, age=25)
+buyer2 = Buyer.objects.create(name="Данил", balance=150.00, age=30)
+buyer3 = Buyer.objects.create(name="Александр", balance=50.00, age=17)
+
+# Создание игр
+game1 = Game.objects.create(title="Марио", cost=25.00, size=15.00, description="Классическая игра с приключениями", age_limited=True)
+game2 = Game.objects.create(title="Тетрис", cost=50.00, size=20.00, description="Логическая игра-головоломка", age_limited=True)
+game3 = Game.objects.create(title="Hitman", cost=10.00, size=5.00, description="Шпионский экшен с миссиями", age_limited=False)
+
+# Присвоение игр покупателям
+game1.buyer.set([buyer1])
+game2.buyer.set([buyer1])
+game3.buyer.set([buyer1])
+
+game3.buyer.add(buyer3)
+
+game1.buyer.add(buyer2)
+game2.buyer.add(buyer2)  
